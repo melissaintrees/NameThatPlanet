@@ -2,25 +2,14 @@ body {
   background-color: #292E37;
 }
 
-.col-md-2 {
-  background-color: white;
-}
-.col-md-8 {
-  background-color: red;
-
-}
 .container {
 
     background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(red, yellow); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(#009999, #00CC00); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#009999, #00CC00); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#009999, #00CC00); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#009999, yellow); /* Standard syntax (must be last) */
     height: 800px;
-}
-
-.main {
-    height: 150px;
 }
 
 header h1 {
@@ -32,24 +21,66 @@ header h1 {
   padding-top: 80px;
 }
 
-h2, #main-question {
+p {
+  font-family: 'Trirong', serif;
+
+  font-weight: bold;
+}
+
+.timer-p {
+  margin-top: 40px;
+  font-size: 16px;
   text-align: center;
-  font-family: font-family: 'Trirong', serif;
-  font-size: 2em;
 }
 
-#start-button {
+.question {
+  text-align: center;
+}
+.answer:hover {
+  background: #FFF700;
+}
+
+.answer {
+  padding-top: 7px;
+  height: 45px;
+  color: #292E37;
+  padding-left: 14px;
+  background-color: cyan;
+  border-radius: 4px;
+}
+
+.img-wrong {
+  margin-top: 40px;
+}
+
+.first-answer {
+  margin-top: 40px;
+}
+
+.reset-button {
+  margin-top: 40px;
+}
+
+.btn-block {
+  width: 40%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border: grey solid 2px;
   background-color: #292E37;
-  color: red;
-  padding: 7px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 22px;
+  color: #46B3B3;
 }
 
-#result-img {
-  background-color: white;
+.btn-block:hover {
+  background-color: #005D5D;
+  color: #00CC00;
+  border: #005D5D solid 2px;
 }
 
-ol {text-align: center; list-style-position: inside;}
+.summary-correct {
+  margin-top: 40px;
+}
 
-#main-question {color: white;}
-
-.questions {height: 300px; color: black;}

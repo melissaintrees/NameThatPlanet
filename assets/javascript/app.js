@@ -1,3 +1,118 @@
+$(document).ready(function() {
+// Create a function that creates the start button and initial screen
+
+function initialScreen() {
+  startScreen = "<p class='main-button-container'><a class='btn btn-md btn-block start-button' href='#' role='button'>Begin Quiz</a></p>";
+  $(".mainArea").html(startScreen);
+}
+
+initialScreen();
+
+//Create a function, generateHTML(), that is triggered by the start button, and generates the HTML seen on the project video...
+
+$("body").on("click", ".start-button", function(event){
+  event.preventDefault();  // added line to test issue on GitHub Viewer
+
+  generateHTML();
+
+  timerWrapper();
+
+}); // Closes start-button click
+
+$(document).on("click", ".answer", function(event){
+  //answeredQuestion = true;
+
+  selectedAnswer = $(this).text();
+  if(selectedAnswer === correctAnswers[questionCounter]) {
+    //alert("correct");
+
+    clearInterval(theClock);
+    generateWin();
+  }
+  else {
+    //alert("wrong answer!");
+    clearInterval(theClock);
+    generateLoss();
+  }
+}); // Close .answer click
+
+$("body").on("click", ".reset-button", function(event){
+  resetGame();
+}); // Closes reset-button click
+
+});  //  Closes jQuery wrapper
+
+function generateLossDueToTimeOut() {
+  unansweredTally++;
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+  $(".mainArea").html(gameHTML);
+  setTimeout(wait, 1000);  //  change to 4000 or other amount
+}
+
+function generateWin() {
+  correctTally++;
+  gameHTML = "<p class='timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + imageArray[questionCounter];
+  $(".mainArea").html(gameHTML);
+  setTimeout(wait, 1000);  //  change to 4000 or other amount
+}
+
+function generateLoss() {
+  incorrectTally++;
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+  $(".mainArea").html(gameHTML);
+  setTimeout(wait, 1000); //  change to 4000 or other amount
+}
+
+function generateHTML() {
+  gameHTML = "<p class='timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='question'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";
+    $(".mainArea").html(gameHTML);
+}
+
+function wait() {
+  if (questionCounter < 7) {
+  questionCounter++;
+  generateHTML();
+  counter = 30;
+  timerWrapper();
+  }
+  else {
+    finalScreen();
+  }
+}
+
+function timerWrapper() {
+  theClock = setInterval(thirtySeconds, 1000);
+  function thirtySeconds() {
+    if (counter === 0) {
+      clearInterval(theClock);
+      generateLossDueToTimeOut();
+    }
+    if (counter > 0) {
+      counter--;
+    }
+    $(".timer").html(counter);
+  }
+}
+
+function finalScreen() {
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class=' reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
+  $(".mainArea").html(gameHTML);
+}
+
+function resetGame() {
+  questionCounter = 0;
+  correctTally = 0;
+  incorrectTally = 0;
+  unansweredTally = 0;
+  counter = 30;
+  generateHTML();
+  timerWrapper();
+}
+
+var startScreen;
+var gameHTML;
+var counter = 30;
+
 var questionsLibrary = [
   {
     question: "A day on this planet is equal to 174.5 days on Earth.",
@@ -50,100 +165,16 @@ var questionsLibrary = [
 
 ];
 
-for (var i = 0; i < questionsLibrary.length; i++) {
-  // this gives you all of the objects and stores them in a var called questionObject:
-  var questionObject = questionsLibrary[i];
-  // this sets up a div for your questions with the questions class:
-  var questionContainer = $("<div class='questions'>")
-      // First each crystal will be given the class ".crystal-image".
-    // This will allow the CSS to take effect.
-    questionContainer.addClass("crystal-image");
-  // this stores the individual questions (with the Object.whatever) in a div with a question class:
-  var questionDiv = $("<div class='question'>" + questionObject.question + "</div>");
-  // and then appends the questionDiv var with all the question divs inside the questionContainer with the one questions div:
-  questionContainer.append(questionDiv);
-  // this sets up a answers div to the page
-  var answersDiv = $("<div class='answers'>");
-  // and then you have to do another four loop (since the answers are all in arrays):
-  for (var a = 0; a < questionObject.answers.length; a++) {
-    // and this makes individual little answer divs inside that answers div:
-    var answerDiv = $("<div class='answer'>" + questionObject.answers[a] + "</div>");
-    // these add attributes i guess so you can click on those answers and get info:
-    answerDiv.attr("data-question", i);
-    answerDiv.attr("data-answer", a);
-    // and push the answerDiv(s) (line 15) to the answersDiv (line 11) with append:
-    answersDiv.append(answerDiv);
-  }
-}
-
-$(document).on("click", ".answer", function (event) {
-  var questionAnswered = $(this).attr("data-question"); // 1
-  var answerAnswered = $(this).attr("data-answer");  // 3
-
-  if (questionsLibrary[questionAnswers].correctAnswer == answerAnswered) {
-    // YAY
-  }
-});
-// variables needed:
-// var timeRemaining;
-// var successMessages;
-// var errorMessages;
-
-// counters:
-// var numberCorrect;
-// var numberIncorrect;
-// var currentQuestion;
-// var timer;
-// var timeRemaining;
-// var library;
-
-// var questionTime = 10; // seconds to guess
-// var answerLength = 3; // seconds shown the answer
-// var questionLength;
-
-// // on the click of the start game button, run the startGame function:
 
 
-// function startGame() {
-//   // when we run this function it should trigger the first question: questionArray[0] as well as answerArray[0], displayed in nice html format in the main-content div
-//   // show intro to game
-//   $("#main-question").html('<br>Test your knowledge of the planets! You have 15 seconds to guess each one! <br> <br><button id="start-button">Start Game</button>');
-//   $("#result").hide();
-//   $("#options").hide();
-//   $("#options li").empty();
-//     //add listeners
-//   // $("#options .answer").off().on("click", makeGuess);
-//   $("#start-button").off().on("click", newQuestion);
-//   // reset game variables:
-//   numberCorrect = 0;
-//   numberIncorrect = 0;
-//   // slice the questions
+var questionArray = ["A day on this planet is equal to 174.5 days on Earth.", "This planet is also known as the morning star and the evening star.", "The surface of this planet moves roughly 1000 miles per hour.","This planet is the most hospitable to life besides earth.", "This is the largest known planet in our solar system.", "This planet has 150 moons.","This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.", "This planet is the farthest known planet from the sun."];
+var answerArray = [["Canberra", "Melbourne", "Sydney", "Darwin"], ["Arthington","Monrovia","Tuzon","Marshall"], ["Tainan City", "Taichung", "Taipei", "Hsinchu"], ["Kyoto","Hiroshima","Tokyo","Osaka"], ["Hong Kong", "Macau", "Shanghai", "Beijing"], ["Ankara","Istanbul","Antalya","Bursa"], ["Medellin", "Bogota", "Cartagena", "Cali"], ["Mumbai","Hyderabad","Bangalore","New Delhi"]];
 
-//   library = questionsLibrary.slice();
-//   questionTime = questionLength;
-//   gameLength = library.length;
-// }
-
-// startGame();
-
-// $("#question").on("click", function() {
-// var numberCorrect = 0;
-// var numberIncorrect = 0;
-
-// });
-
-
-
-
-// function to start game on the click of the "Start," button.
-// displayed is:
-//  - the first question, a timer, and a list of possible answers to click on.
-//  - if the answer === correct_answer && time_remaining is not equal to zero,
-//        then display success-message
-//        correct-answer + 1
-//  - else if the answer != correct answer && time_remaining is not equal to zero,
-//        then display error-message
-//        incorrect-answers + 1
-//  - else time_remaining is equal to zero and answer = to nothing,
-//        then advance to next question
-//        unanswered-answers + 1
+var imageArray = ["<img class='center-block img-right' src='assets/images/Mercury.png'>", "<img class='center-block img-right' src='assets/images/Venus.png'>", "<img class='center-block img-right' src='assets/images/Earth.png'>", "<img class='center-block img-right' src='assets/images/Mars.png'>", "<img class='center-block img-right' src='assets/images/Jupiter.png'>", "<img class='center-block img-right' src='assets/images/Saturn.png'>", "<img class='center-block img-right' src='assets/images/Uranus.png'>", "<img class='center-block img-right' src='assets/images/Neptune.png'>"];
+var correctAnswers = ["A. Canberra", "B. Monrovia", "C. Taipei", "C. Tokyo", "D. Beijing", "A. Ankara", "B. Bogota", "D. New Delhi"];
+var questionCounter = 0;
+var selecterAnswer;
+var theClock;
+var correctTally = 0;
+var incorrectTally = 0;
+var unansweredTally = 0;
