@@ -15,6 +15,7 @@ $("body").on("click", ".start-button", function(event){
 
   generateHTML();
 
+
   timerWrapper();
 
 }); // Closes start-button click
