@@ -1,6 +1,14 @@
 body {
   background-color: #292E37;
 }
+
+.col-md-2 {
+  background-color: white;
+}
+.col-md-8 {
+  background-color: red;
+
+}
 .container {
 
     background: red; /* For browsers that do not support gradients */
@@ -12,11 +20,11 @@ body {
 }
 
 .main {
-    height: 250px;
+    height: 150px;
 }
 
 header h1 {
-  font-family: 'Trirong', serif;
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   font-size: 4em;
   font-weight: bold;
@@ -24,5 +32,24 @@ header h1 {
   padding-top: 80px;
 }
 
-h2 {text-align: center;}
+h2, #main-question {
+  text-align: center;
+  font-family: font-family: 'Trirong', serif;
+  font-size: 2em;
+}
 
+#start-button {
+  background-color: #292E37;
+  color: red;
+  padding: 7px;
+}
+
+#result-img {
+  background-color: white;
+}
+
+ol {text-align: center; list-style-position: inside;}
+
+#main-question {color: white;}
+
+.questions {height: 300px; color: black;}
