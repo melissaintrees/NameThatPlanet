@@ -45,7 +45,7 @@ $("body").on("click", ".reset-button", function(event){
 
 function generateLossDueToTimeOut() {
   unansweredTally++;
-  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.jpg'>";
   $(".mainArea").html(gameHTML);
   setTimeout(wait, 1000);  //  change to 4000 or other amount
 }
@@ -59,7 +59,7 @@ function generateWin() {
 
 function generateLoss() {
   incorrectTally++;
-  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.png'>";
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.jpg'>";
   $(".mainArea").html(gameHTML);
   setTimeout(wait, 1000); //  change to 4000 or other amount
 }
@@ -121,49 +121,49 @@ var questionsLibrary = [
     question: "A day on this planet is equal to 174.5 days on Earth.",
     answers: ["Mars", "Mercury", "Planet 9", "Neptune"],
     correctAnswer: 1,
-    image: "assets/images/Mercury.png"
+    image: "assets/images/Mercury.jpg"
   },
   {
     question: "This planet is also known as the morning star and the evening star.",
     answers: ["Venus", "Mercury", "Uranus", "Pluto"],
     correctAnswer: 0,
-    image: "assets/images/Venus.png"
+    image: "assets/images/Venus.jpg"
   },
   {
     question: "The surface of this planet moves roughly 1000 miles per hour.",
     answers: ["Jupiter", "Mars", "Saturn", "Earth"],
     correctAnswer: 3,
-    image: "assets/images/Earth.png"
+    image: "assets/images/Earth.jpg"
   },
   {
     question: "This planet is the most hospitable to life besides earth.",
     answers: ["Saturn", "Uranus", "Mars", "Venus"],
     correctAnswer: 2,
-    image: "assets/images/Mars.png"
+    image: "assets/images/Mars.jpg"
   },
   {
     question: "This is the largest known planet in our solar system.",
     answers: ["Planet 9", "Pluto", "Jupiter", "Mercury"],
     correctAnswer: 2,
-    image: "assets/images/Jupiter.png"
+    image: "assets/images/Jupiter.jpg"
   },
   {
     question: "This planet has 150 moons.",
     answers: ["Saturn", "Earth", "Sun", "Mars"],
     correctAnswer: 0,
-    image: "assets/images/Saturn.png"
+    image: "assets/images/Saturn.jpg"
   },
   {
     question: "This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.",
     answers: ["Venus", "Neptune", "Jupiter", "Uranus"],
     correctAnswer: 3,
-    image: "assets/images/Uranus.png"
+    image: "assets/images/Uranus.jpg"
   },
   {
     question: "This planet is the farthest known planet from the sun.",
     answers: ["Mars", "Neptune", "Saturn", "Pluto"],
     correctAnswer: 3,
-    image: "assets/images/Neptune.png"
+    image: "assets/images/Neptune.jpg"
   }
 
 ];
@@ -173,7 +173,7 @@ var questionsLibrary = [
 var questionArray = ["A day on this planet is equal to 174.5 days on Earth.", "This planet is also known as the morning star and the evening star.", "The surface of this planet moves roughly 1000 miles per hour.","This planet is the most hospitable to life besides earth.", "This is the largest known planet in our solar system.", "This planet has 150 moons.","This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.", "This planet is the farthest known planet from the sun."];
 var answerArray = [["Mercury", "Mars", "Saturn", "Neptune"], ["Mercury", "Venus", "Uranus", "Pluto"], ["Jupiter", "Mars", "Saturn", "Earth"], ["Saturn", "Uranus", "Mars", "Venus"], ["Planet 9", "Pluto", "Jupiter", "Mercury"], ["Saturn", "Earth", "Sun", "Mars"], ["Venus", "Neptune", "Jupiter", "Uranus"], ["Mars", "Neptune", "Saturn", "Pluto"]];
 
-var imageArray = ["<img class='center-block img-right' src='assets/images/Mercury.png'>", "<img class='center-block img-right' src='assets/images/Venus.png'>", "<img class='center-block img-right' src='assets/images/Earth.png'>", "<img class='center-block img-right' src='assets/images/Mars.png'>", "<img class='center-block img-right' src='assets/images/Jupiter.png'>", "<img class='center-block img-right' src='assets/images/Saturn.png'>", "<img class='center-block img-right' src='assets/images/Uranus.png'>", "<img class='center-block img-right' src='assets/images/Neptune.png'>"];
+var imageArray = ["<img class='center-block img-right' src='assets/images/Mercury.jpg'>", "<img class='center-block img-right' src='assets/images/Venus.jpg'>", "<img class='center-block img-right' src='assets/images/Earth.jpg'>", "<img class='center-block img-right' src='assets/images/Mars.jpg'>", "<img class='center-block img-right' src='assets/images/Jupiter.jpg'>", "<img class='center-block img-right' src='assets/images/Saturn.jpg'>", "<img class='center-block img-right' src='assets/images/Uranus.jpg'>", "<img class='center-block img-right' src='assets/images/Neptune.jpg'>"];
 var correctAnswers = ["A. Mercury", "B. Venus", "D. Earth", "C. Mars", "C. Jupiter", "A. Saturn", "D. Uranus", "B. Neptune"];
 var questionCounter = 0;
 var selecterAnswer;
