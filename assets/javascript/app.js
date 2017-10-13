@@ -67,6 +67,7 @@ function generateLoss() {
 function generateHTML() {
   gameHTML = "<p class='timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='question'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";
     $(".mainArea").html(gameHTML);
+    console.log(answerArray[questionCounter][3])
 }
 
 function wait() {
@@ -169,10 +170,10 @@ var questionsLibrary = [
 
 
 var questionArray = ["A day on this planet is equal to 174.5 days on Earth.", "This planet is also known as the morning star and the evening star.", "The surface of this planet moves roughly 1000 miles per hour.","This planet is the most hospitable to life besides earth.", "This is the largest known planet in our solar system.", "This planet has 150 moons.","This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.", "This planet is the farthest known planet from the sun."];
-var answerArray = [["Canberra", "Melbourne", "Sydney", "Darwin"], ["Arthington","Monrovia","Tuzon","Marshall"], ["Tainan City", "Taichung", "Taipei", "Hsinchu"], ["Kyoto","Hiroshima","Tokyo","Osaka"], ["Hong Kong", "Macau", "Shanghai", "Beijing"], ["Ankara","Istanbul","Antalya","Bursa"], ["Medellin", "Bogota", "Cartagena", "Cali"], ["Mumbai","Hyderabad","Bangalore","New Delhi"]];
+var answerArray = [["Mercury", "Mars", "Saturn", "Neptune"], ["Mercury", "Venus", "Uranus", "Pluto"], ["Jupiter", "Mars", "Saturn", "Earth"], ["Saturn", "Uranus", "Mars", "Venus"], ["Planet 9", "Pluto", "Jupiter", "Mercury"], ["Saturn", "Earth", "Sun", "Mars"], ["Venus", "Neptune", "Jupiter", "Uranus"], ["Mars", "Neptune", "Saturn", "Pluto"]];
 
 var imageArray = ["<img class='center-block img-right' src='assets/images/Mercury.png'>", "<img class='center-block img-right' src='assets/images/Venus.png'>", "<img class='center-block img-right' src='assets/images/Earth.png'>", "<img class='center-block img-right' src='assets/images/Mars.png'>", "<img class='center-block img-right' src='assets/images/Jupiter.png'>", "<img class='center-block img-right' src='assets/images/Saturn.png'>", "<img class='center-block img-right' src='assets/images/Uranus.png'>", "<img class='center-block img-right' src='assets/images/Neptune.png'>"];
-var correctAnswers = ["A. Canberra", "B. Monrovia", "C. Taipei", "C. Tokyo", "D. Beijing", "A. Ankara", "B. Bogota", "D. New Delhi"];
+var correctAnswers = ["A. Mercury", "B. Venus", "D. Earth", "C. Mars", "C. Jupiter", "A. Saturn", "D. Uranus", "B. Neptune"];
 var questionCounter = 0;
 var selecterAnswer;
 var theClock;
