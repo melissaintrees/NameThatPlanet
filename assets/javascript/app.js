@@ -70,6 +70,7 @@ function generateHTML() {
     console.log(answerArray[questionCounter][3])
 }
 
+
 function wait() {
   if (questionCounter < 7) {
   questionCounter++;
