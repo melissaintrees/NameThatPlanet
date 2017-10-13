@@ -1,51 +1,55 @@
 body {
-  background-color: #292E37;
+  background-color: #030338;
 }
 
 .container {
-    background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#009999, #00CC00); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#009999, #00CC00); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#009999, #00CC00); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#009999, yellow); /* Standard syntax (must be last) */
+    background: #030338; /* For browsers that do not support gradients */
     height: 800px;
+    width: 100%;
 }
 
 header h1 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Nova Flat', cursive;
   text-align: center;
   font-size: 4em;
-  font-weight: bold;
-  color: #292E37;
-  padding-top: 80px;
+  color: grey;
+  padding-top: 40px;
 }
 
 p {
-  font-family: 'Trirong', serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   font-weight: bold;
+  color: cyan;
+  font-size: 20px;
 }
 
 .timer-p {
-  margin-top: 40px;
-  font-size: 16px;
+  margin-top: 20px;
+  font-size: 20px;
   text-align: center;
+
 }
 
 .question {
   text-align: center;
+  font-size: 20px;
 }
 .answer:hover {
-  background: #FFF700;
+  background: cyan;
 }
 
 .answer {
-  padding-top: 7px;
+  padding-top: 12px;
   height: 45px;
   color: #292E37;
   padding-left: 14px;
-  background-color: cyan;
+  background-color: #FFF700;
   border-radius: 4px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
 }
 
 .img-wrong {
@@ -83,3 +87,11 @@ p {
   margin-top: 40px;
 }
 
+canvas {
+  width: 100%;
+  height: 600px;
+}
+
+#space {
+
+}

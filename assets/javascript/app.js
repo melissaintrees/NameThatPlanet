@@ -2,7 +2,7 @@ $(document).ready(function() {
 // Create a function that creates the start button and initial screen
 
 function initialScreen() {
-  startScreen = "<p class='main-button-container'><a class='btn btn-md btn-block start-button' href='#' role='button'>Begin Quiz</a></p>";
+  startScreen = "<p class='main-button-container'><a class='btn btn-md btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
   $(".mainArea").html(startScreen);
 }
 
@@ -12,26 +12,20 @@ initialScreen();
 
 $("body").on("click", ".start-button", function(event){
   event.preventDefault();  // added line to test issue on GitHub Viewer
-
   generateHTML();
-
-
   timerWrapper();
 
 }); // Closes start-button click
 
 $(document).on("click", ".answer", function(event){
-  //answeredQuestion = true;
 
   selectedAnswer = $(this).text();
   if(selectedAnswer === correctAnswers[questionCounter]) {
-    //alert("correct");
-
     clearInterval(theClock);
     generateWin();
   }
+
   else {
-    //alert("wrong answer!");
     clearInterval(theClock);
     generateLoss();
   }
@@ -45,23 +39,26 @@ $("body").on("click", ".reset-button", function(event){
 
 function generateLossDueToTimeOut() {
   unansweredTally++;
-  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>You ran out of time!  The correct answer was: " + correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.jpg'>";
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>You forgot to pick an answer! " + correctAnswers[questionCounter] + " was the answer you missed</p>" + "<img class='center-block img-wrong' src='assets/images/Wrong-BlackHole.jpg'>";
   $(".mainArea").html(gameHTML);
-  setTimeout(wait, 1000);  //  change to 4000 or other amount
+  $(".timer-p").empty(gameHTML);
+  setTimeout(wait, 2000);  //  change to 4000 or other amount
 }
 
 function generateWin() {
   correctTally++;
-  gameHTML = "<p class='timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p>Correct! The answer is: " + correctAnswers[questionCounter] + "</p>" + imageArray[questionCounter];
+  gameHTML = "<p class='timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Horray!!! " + correctAnswers[questionCounter] + " was right! </p> <br> " + imageArray[questionCounter];
   $(".mainArea").html(gameHTML);
-  setTimeout(wait, 1000);  //  change to 4000 or other amount
+  $(".timer-p").empty(gameHTML);
+  setTimeout(wait, 2500);  //  change to 4000 or other amount
 }
 
 function generateLoss() {
   incorrectTally++;
-  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Wrong! The correct answer is: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='img/x.jpg'>";
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Nope! It was: "+ correctAnswers[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/Wrong-BlackHole.jpg'>" + " <br> <br> <p> Black Hole </p> ";
   $(".mainArea").html(gameHTML);
-  setTimeout(wait, 1000); //  change to 4000 or other amount
+  $(".timer-p").empty(gameHTML);
+  setTimeout(wait, 2500); //  change to 4000 or other amount
 }
 
 function generateHTML() {
@@ -98,8 +95,10 @@ function timerWrapper() {
 }
 
 function finalScreen() {
-  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class=' reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
+  gameHTML = "<p class=' timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class=''>Here's Your Score!" + "</p>" + "<p class='summary-correct'>Correct: " + correctTally + "</p>" + "<p>Wrong: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class=' reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Take It Again!</a></p>";
+
   $(".mainArea").html(gameHTML);
+  $(".timer-p").empty(gameHTML);
 }
 
 function resetGame() {
@@ -116,59 +115,6 @@ var startScreen;
 var gameHTML;
 var counter = 30;
 
-var questionsLibrary = [
-  {
-    question: "A day on this planet is equal to 174.5 days on Earth.",
-    answers: ["Mars", "Mercury", "Planet 9", "Neptune"],
-    correctAnswer: 1,
-    image: "assets/images/Mercury.jpg"
-  },
-  {
-    question: "This planet is also known as the morning star and the evening star.",
-    answers: ["Venus", "Mercury", "Uranus", "Pluto"],
-    correctAnswer: 0,
-    image: "assets/images/Venus.jpg"
-  },
-  {
-    question: "The surface of this planet moves roughly 1000 miles per hour.",
-    answers: ["Jupiter", "Mars", "Saturn", "Earth"],
-    correctAnswer: 3,
-    image: "assets/images/Earth.jpg"
-  },
-  {
-    question: "This planet is the most hospitable to life besides earth.",
-    answers: ["Saturn", "Uranus", "Mars", "Venus"],
-    correctAnswer: 2,
-    image: "assets/images/Mars.jpg"
-  },
-  {
-    question: "This is the largest known planet in our solar system.",
-    answers: ["Planet 9", "Pluto", "Jupiter", "Mercury"],
-    correctAnswer: 2,
-    image: "assets/images/Jupiter.jpg"
-  },
-  {
-    question: "This planet has 150 moons.",
-    answers: ["Saturn", "Earth", "Sun", "Mars"],
-    correctAnswer: 0,
-    image: "assets/images/Saturn.jpg"
-  },
-  {
-    question: "This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.",
-    answers: ["Venus", "Neptune", "Jupiter", "Uranus"],
-    correctAnswer: 3,
-    image: "assets/images/Uranus.jpg"
-  },
-  {
-    question: "This planet is the farthest known planet from the sun.",
-    answers: ["Mars", "Neptune", "Saturn", "Pluto"],
-    correctAnswer: 3,
-    image: "assets/images/Neptune.jpg"
-  }
-
-];
-
-
 
 var questionArray = ["A day on this planet is equal to 174.5 days on Earth.", "This planet is also known as the morning star and the evening star.", "The surface of this planet moves roughly 1000 miles per hour.","This planet is the most hospitable to life besides earth.", "This is the largest known planet in our solar system.", "This planet has 150 moons.","This planet orbits the sun on it&#8217;s side and is about 65&#37; ice.", "This planet is the farthest known planet from the sun."];
 var answerArray = [["Mercury", "Mars", "Saturn", "Neptune"], ["Mercury", "Venus", "Uranus", "Pluto"], ["Jupiter", "Mars", "Saturn", "Earth"], ["Saturn", "Uranus", "Mars", "Venus"], ["Planet 9", "Pluto", "Jupiter", "Mercury"], ["Saturn", "Earth", "Sun", "Mars"], ["Venus", "Neptune", "Jupiter", "Uranus"], ["Mars", "Neptune", "Saturn", "Pluto"]];
@@ -181,3 +127,57 @@ var theClock;
 var correctTally = 0;
 var incorrectTally = 0;
 var unansweredTally = 0;
+
+
+// Just For Fun. Enjoy finding new constellations ;-)
+
+(function($){
+
+  function generateStar(canvas, ctx, starRadius){
+      ctx.beginPath();
+      ctx.arc(starRadius + (Math.random() * canvas.width), starRadius + (Math.random() * canvas.height), starRadius*Math.random(), 0, Math.PI*2, false);
+      //ctx.arc(100, 30, starRadius, 0, Math.PI*2, false);
+
+      var rand = Math.random();
+      if(rand <= 0.5){
+          ctx.fillStyle = "rgba(255, 255, 255, 1)";
+          ctx.shadowColor = "rgba(255, 255, 255, 0.5)";
+          ctx.shadowBlur = 3;
+      }
+      else if(rand > 0.75){
+          ctx.fillStyle = "rgba(255, 254, 196, 1)";
+          ctx.shadowColor = "rgba(255, 254, 196, 0.5)";
+          ctx.shadowBlur = 4;
+      }
+      else{
+          ctx.fillStyle = "rgba(192, 247, 255, 1)";
+          ctx.shadowColor = "rgba(192, 247, 255, 0.5)";
+          ctx.shadowBlur = 7;
+      }
+      ctx.fill();
+  }
+
+  $(function(){
+
+    var canvas = document.getElementById("space");
+    var context = canvas.getContext("2d");
+
+    onresize = function(){
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+    }
+    onresize();
+
+    interval = setInterval(
+      function(interval){
+        generateStar(canvas, context, 3);
+      }
+      , 24);
+
+    setTimeout( // Stop sreating stars after 10s
+      function(){ clearInterval(interval); }
+      ,100000
+    );
+
+  });
+})(jQuery);
