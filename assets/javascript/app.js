@@ -11,14 +11,14 @@ var questionsSet = [
     question: "A day on this planet is equal to 174.5 days on Earth.",
     answers: ["Mercury", "Mars", "Saturn", "Neptune"],
     correctAnswer: "Mercury",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Mercury.png"
   },
   {
     question:
       "This planet is also known as the morning star and the evening star.",
     answers: ["Mercury", "Venus", "Uranus", "Pluto"],
     correctAnswer: "Venus",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Venus.png"
   },
   {
     question: "The surface of this planet moves roughly 1000 miles per hour.",
@@ -30,32 +30,32 @@ var questionsSet = [
     question: "This planet is the most hospitable to life besides earth.",
     answers: ["Saturn", "Uranus", "Mars", "Venus"],
     correctAnswer: "Mars",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Mars.png"
   },
   {
     question: "This is the largest known planet in our solar system.",
     answers: ["Planet 9", "Pluto", "Jupiter", "Mercury"],
     correctAnswer: "Jupiter",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Jupiter.png"
   },
   {
     question: "This planet has 150 moons and is known as a 'difficult' planet",
     answers: ["Saturn", "Earth", "Sun", "Mars"],
     correctAnswer: "Saturn",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Saturn.png"
   },
   {
     question:
       "This planet orbits the sun on it&#8217;s side and is about 65&#37; ice",
     answers: ["Venus", "Neptune", "Jupiter", "Uranus"],
     correctAnswer: "Uranus",
-    image: "assets/images/Earth.png"
+    image: "assets/images/Uranus.png"
   },
   {
     question: "This planet is the farthest known planet from the sun.",
     answers: ["Mars", "Neptune", "Saturn", "Pluto"],
     correctAnswer: "Neptune",
-    image: "assets/images/NEarth.png"
+    image: "assets/images/Neptune.png"
   }
 ];
 
