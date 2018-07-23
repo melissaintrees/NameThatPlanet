@@ -223,7 +223,7 @@ $(document).on('click', '.reset-button', function () {
       function(interval){
         generateStar(canvas, context, 3);
       }
-      , 24);
+      , 54);
 
     setTimeout( // Stop creating stars after 100s
       function(){ clearInterval(interval); }
