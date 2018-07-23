@@ -15,12 +15,10 @@ body {
   flex: 1 0 auto;
 }
 
-
 .new-div {
   margin-top: 130px;
   position: absolute;
 }
-
 
 h1 {
   font-family: 'Nova Flat', cursive;
@@ -47,7 +45,6 @@ h1 {
   color: cyan;
   font-size: 20px;
   background-color: #030338;
-
 }
 
 .timer-p {
@@ -62,15 +59,12 @@ h1 {
   font-size: 20px;
   background-color: #030338;
 }
+
 .answer:hover {
   background: cyan;
   color: white;
 }
-.answer:visited{
-  background-color: #FFF700;
-  color: #292E37;
 
-}
 .answer {
   margin-top: 20px;
   padding-top: 12px;
@@ -87,6 +81,7 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   text-transform: bold;
 }
+
 .planets {
   position: absolute;
   width: 250px;
@@ -98,9 +93,8 @@ h1 {
 }
 
 .main-button-container {
-margin-bottom: 60px;
+  margin-bottom: 60px;
 }
-
 
 .start-button,
 .reset-button {
@@ -114,7 +108,6 @@ margin-bottom: 60px;
   z-index: 100;
   text-decoration: none;
 }
-
 
 .start-button:hover,
 .reset-button:hover {
@@ -138,20 +131,21 @@ canvas {
   position: absolute;
   top: 200px;
 }
+
 /* footer text */
 
 h3 {
-  background-color : #030338;
+  background-color: #030338;
   font-family: 'Nova Flat', cursive;
   text-align: center;
   font-size: 2em;
-  color:#FFF700;
+  color: #FFF700;
   position: absolute;
   top: 700px;
   flex-shrink: 0;
 }
 
-h3 > a {
+h3>a {
   color: red;
   text-decoration: none;
 }
@@ -195,6 +189,7 @@ h3 > a {
     width: 100%;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .new-div {
     margin-top: 210px;
@@ -219,10 +214,9 @@ h3 > a {
   }
   .planets {
     height: auto;
-    width: 40%;
+    width: auto;
     margin-left: -60px;
   }
-
   h1 {
     background-color: transparent;
   }
@@ -233,7 +227,9 @@ h3 > a {
     height: 900px;
   }
 }
+
 /* media-queries */
+
 @media only screen and (min-width: 1500px) {
   canvas {
     width: 100%;
@@ -241,15 +237,18 @@ h3 > a {
     display: flex;
     /* position: relative; */
   }
- 
 }
 
 /* screens above 1500px */
 
 /* 1. add media query for screens that have dissapearing timers */
+
 /* 2. make screens with heights larger than 1000px larger  */
+
 /* 3. check jquery link to make sure it's clickable on screens*/
+
 /* 6. redo readme page */
 
 /* 4. add all the rest of the questions  */
+
 /* 5. take background out of images */
