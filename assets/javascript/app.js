@@ -132,13 +132,13 @@ var quizObject = {
     this.choicesRight++
     panel.html("<h2 class='current-message'>You answered, " + questionsSet[this.currentQuestion].correctAnswer + "! That's Correct! <br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
-    setTimeout(quizObject.nextQuestion, 3 * 1000);
+    setTimeout(quizObject.nextQuestion, 4 * 1000);
   },
   handlewrongAnswer: function () {
     this.choicesWrong++
     panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer+ ".<br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
-    setTimeout(quizObject.nextQuestion, 3 * 1000);
+    setTimeout(quizObject.nextQuestion, 4 * 1000);
   },
   reset: function (){
     $(".countdown-div").show();
@@ -148,7 +148,6 @@ var quizObject = {
     this.choicesWrong = 0;
     this.countdown();
     this.askQuestions();
-    generateStar();
   }
 }
 
