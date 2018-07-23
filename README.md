@@ -1,3 +1,4 @@
 # [Name That Planet](https://melissaintrees.github.io/TriviaGame/) trivia game! 
-# credit to [Adancode](https://github.com/Adancode) for inspiration on the javascript. 
-
+# Code and Design by Melissa
+# Javascript, JQuery, CSS, HTML 
+# Space Background is based on a JQUERY function found on codepen from Alexandre Dees.
