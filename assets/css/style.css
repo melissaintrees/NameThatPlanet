@@ -199,7 +199,7 @@ h3 > a {
   .mainArea {
     top: 250px;
     padding: 20px;
-    width: 100%;
+    width: 90%;
   }
   .current-message {
     margin-top: 20px;
@@ -209,9 +209,14 @@ h3 > a {
     position: relative;
     width: 100%;
   }
-  .main-button-container {
+  .start-button {
     margin-bottom: 60px;
     margin-left: 100px;
+  }
+  .planets {
+   
+    width: 50%;
+    margin-left: -80px;
   }
 
   h1 {
