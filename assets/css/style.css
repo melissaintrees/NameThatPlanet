@@ -96,9 +96,7 @@ h1 {
 .main-button-container {
 margin-bottom: 60px;
 }
-/* .reset-button {
-  margin-top: 40px;
-} */
+
 
 .start-button,
 .reset-button {
@@ -212,6 +210,9 @@ h3 > a {
   }
   h3 {
     background-color: transparent;
+  }
+  canvas {
+    height: 900px;
   }
 }
 /* media-queries */

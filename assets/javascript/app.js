@@ -38,22 +38,22 @@ var questionsSet = [
     image: 'assets/images/Jupiter.png'
   },
   {
-    question: "This planet has 150 moons.",
+    question: "This planet has 150 moons and is known as a 'difficult' planet",
     answers: ["Saturn", "Earth", "Sun", "Mars"],
-    correctAnswer: "Satru",
-    image: 'assets/images/Satru.png'
+    correctAnswer: "Saturn",
+    image: 'assets/images/Saturn.png'
   },
   {
     question: "This planet orbits the sun on it&#8217;s side and is about 65&#37; ice",
     answers: ["Venus", "Neptune", "Jupiter", "Uranus"],
-    correctAnswer: "Earth",
-    image: 'assets/images/Earth.png'
+    correctAnswer: "Uranus",
+    image: 'assets/images/Uranus.png'
   },
   {
     question: "This planet is the farthest known planet from the sun.",
     answers: ["Mars", "Neptune", "Saturn", "Pluto"],
-    correctAnswer: "Earth",
-    image: 'assets/images/Earth.png'
+    correctAnswer: "Neptune",
+    image: 'assets/images/Neptune.png'
   }
 ]
 
@@ -130,13 +130,13 @@ var quizObject = {
   },
   handlerightAnswer: function () {
     this.choicesRight++
-    panel.html("<h2 class='current-message'>You answered, " + questionsSet[this.currentQuestion].correctAnswer + " That's Correct! <br><br>");
+    panel.html("<h2 class='current-message'>You answered, " + questionsSet[this.currentQuestion].correctAnswer + "! That's Correct! <br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
     setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
   handlewrongAnswer: function () {
     this.choicesWrong++
-    panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer+ "<br><br>");
+    panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer+ ".<br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
     setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
@@ -226,9 +226,9 @@ $(document).on('click', '.reset-button', function () {
       }
       , 24);
 
-    setTimeout( // Stop creating stars after 10s
+    setTimeout( // Stop creating stars after 100s
       function(){ clearInterval(interval); }
-      ,100000
+      ,200000
     );
 
   });
