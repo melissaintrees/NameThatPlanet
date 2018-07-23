@@ -211,12 +211,12 @@ h3 > a {
   }
   .start-button {
     margin-bottom: 60px;
-    margin-left: 100px;
+    margin-left: 70px;
   }
   .planets {
     height: auto;
-    width: 100%;
-    margin-left: -80px;
+    width: 40%;
+    margin-left: -60px;
   }
 
   h1 {

@@ -11,7 +11,7 @@ var questionsSet = [
     question: "A day on this planet is equal to 174.5 days on Earth.",
     answers: ["Mercury", "Mars", "Saturn", "Neptune"],
     correctAnswer: "Mercury",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Mercury_sml.png'
   },
   {
     question: "This planet is also known as the morning star and the evening star.",
@@ -23,37 +23,37 @@ var questionsSet = [
     question: "The surface of this planet moves roughly 1000 miles per hour.",
     answers: ["Jupiter", "Mars", "Saturn", "Earth"],
     correctAnswer: "Earth",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Earth_sml.png'
   },
   {
     question: "This planet is the most hospitable to life besides earth.",
     answers: ["Saturn", "Uranus", "Mars", "Venus"],
     correctAnswer: "Mars",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Mars_sml.png'
   },
   {
     question: "This is the largest known planet in our solar system.",
     answers: ["Planet 9", "Pluto", "Jupiter", "Mercury"],
     correctAnswer: "Jupiter",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Jupiter_sml.png'
   },
   {
     question: "This planet has 150 moons and is known as a 'difficult' planet",
     answers: ["Saturn", "Earth", "Sun", "Mars"],
     correctAnswer: "Saturn",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Saturn_sml.png'
   },
   {
     question: "This planet orbits the sun on it&#8217;s side and is about 65&#37; ice",
     answers: ["Venus", "Neptune", "Jupiter", "Uranus"],
     correctAnswer: "Uranus",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Uranus_sml.png'
   },
   {
     question: "This planet is the farthest known planet from the sun.",
     answers: ["Mars", "Neptune", "Saturn", "Pluto"],
     correctAnswer: "Neptune",
-    image: 'assets/images/Venus_sml.png'
+    image: 'assets/images/Neptune_sml.png'
   }
 ]
 
@@ -132,13 +132,13 @@ var quizObject = {
     this.choicesRight++
     panel.html("<h2 class='current-message'>You answered, " + questionsSet[this.currentQuestion].correctAnswer + "! That's Correct! <br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
-    setTimeout(quizObject.nextQuestion, 4 * 1000);
+    setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
   handlewrongAnswer: function () {
     this.choicesWrong++
     panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer+ ".<br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
-    setTimeout(quizObject.nextQuestion, 4 * 1000);
+    setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
   reset: function (){
     $(".countdown-div").show();
