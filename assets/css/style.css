@@ -82,10 +82,12 @@ h1 {
   text-transform: bold;
 }
 
-.planets {
-  position: absolute;
+img {
+  width: 50%;
+  height: auto;
+  /* position: absolute;
   width: 250px;
-  margin-left: -110px;
+  margin-left: -110px; */
 }
 
 .img-wrong {
