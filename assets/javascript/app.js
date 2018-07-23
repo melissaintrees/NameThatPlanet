@@ -87,7 +87,7 @@ var quizObject = {
     $('.questions-div').html('<p class="question">' + questionsSet[this.currentQuestion].question);
     for (var i = 0; i < questionsSet[this.currentQuestion].answers.length; i++){
      
-      panel.append("<a class='answer'>" + questionsSet[this.currentQuestion].answers[i]);
+      panel.append("<div class='answer' role='button'>" + questionsSet[this.currentQuestion].answers[i]);
     }
   },
   nextQuestion: function (){
@@ -168,7 +168,7 @@ $(document).on("click", ".start-button", function () {
 
 // === on click for getting which button was clicked
 
-$(document).on('click', '.answer', function (event) {
+$(document).on('click touchstart', '.answer', function (event) {
   
   userAnswer = $(event.target).text();
   quizObject.clicked(userAnswer);
