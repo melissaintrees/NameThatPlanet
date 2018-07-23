@@ -194,17 +194,26 @@ h3 > a {
 @media only screen and (max-width: 767px) {
   .new-div {
     margin-top: 210px;
+    width: 100%;
   }
   .mainArea {
     top: 250px;
     padding: 20px;
+    width: 100%;
   }
   .current-message {
     margin-top: 20px;
+    width: 100%;
   }
   .question {
     position: relative;
+    width: 100%;
   }
+  .main-button-container {
+    margin-bottom: 60px;
+    margin-left: 100px;
+  }
+
   h1 {
     background-color: transparent;
   }
