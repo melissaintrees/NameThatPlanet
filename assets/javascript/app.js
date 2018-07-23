@@ -86,8 +86,8 @@ var quizObject = {
     panel.html('<div class="questions-div">');
     $('.questions-div').html('<p class="question">' + questionsSet[this.currentQuestion].question);
     for (var i = 0; i < questionsSet[this.currentQuestion].answers.length; i++){
-      console.log(questionsSet[this.currentQuestion].answers[i])
-      panel.append("<div class='answer'>" + questionsSet[this.currentQuestion].answers[i]);
+     
+      panel.append("<a class='answer'>" + questionsSet[this.currentQuestion].answers[i]);
     }
   },
   nextQuestion: function (){
@@ -103,7 +103,7 @@ var quizObject = {
   },
   timesUp: function () {
     clearInterval(timer)
-    // $(".countdown-div").hide();
+    $(".countdown-div").hide();
     this.choicesNone ++
     // this.handleRight();
     panel.html("<h2 class='current-message'>Time (and Space) are up! The Correct Answer is " + questionsSet[this.currentQuestion].correctAnswer + "<br><br>");
