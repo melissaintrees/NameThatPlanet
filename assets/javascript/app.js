@@ -69,32 +69,32 @@ var quizObject = {
   currentQuestion: 0,
 
   countdown: function () {
-    
+
     quizObject.counter--;
     //adds the decremented counter var to the .timer-p div insice the
     $(".timer-p").text(quizObject.counter);
-    if (quizObject.counter === 0){
+    if (quizObject.counter === 0) {
       console.log("times up");
       quizObject.timesUp();
     }
   },
-  askQuestions: function (){
+  askQuestions: function () {
     clearInterval(timer)
     timer = setInterval(quizObject.countdown, 1000);
     $(".timer-p").text(quizObject.counter)
     $(".countdown-div").show();
     panel.html('<div class="questions-div">');
     $('.questions-div').html('<p class="question">' + questionsSet[this.currentQuestion].question);
-    for (var i = 0; i < questionsSet[this.currentQuestion].answers.length; i++){
-     
+    for (var i = 0; i < questionsSet[this.currentQuestion].answers.length; i++) {
+
       panel.append("<div class='answer' role='button'>" + questionsSet[this.currentQuestion].answers[i]);
     }
   },
-  nextQuestion: function (){
+  nextQuestion: function () {
     quizObject.counter = 10;
     // $(".countdown-div").show();
     quizObject.currentQuestion += 1
-    if (quizObject.currentQuestion < quizObject.questions.length){
+    if (quizObject.currentQuestion < quizObject.questions.length) {
       quizObject.askQuestions();
     } else {
       // console.log("done")
@@ -104,14 +104,14 @@ var quizObject = {
   timesUp: function () {
     clearInterval(timer)
     $(".countdown-div").hide();
-    this.choicesNone ++
+    this.choicesNone++
     // this.handleRight();
     panel.html("<h2 class='current-message'>Time (and Space) are up! The Correct Answer is " + questionsSet[this.currentQuestion].correctAnswer + "<br><br>");
-    $(".current-message").append("<img class='planets 'src='" + questionsSet[this.currentQuestion].image + "' />" )
+    $(".current-message").append("<img class='planets 'src='" + questionsSet[this.currentQuestion].image + "' />")
     quizObject.counter = 10;
     setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
-  results: function (){
+  results: function () {
     clearInterval(timer)
     $(".countdown-div").hide();
     panel.html("<h2 class='current-message'>Correct Answers: " + this.choicesRight);
@@ -119,7 +119,7 @@ var quizObject = {
     resetbutton = "<p class='main-button-container'><a class='reset-button' href='#' role='button'>Play Again</a></p>"
     $('.current-message').prepend(resetbutton);
   },
-  clicked: function (userAnswer){
+  clicked: function (userAnswer) {
     if (userAnswer === questionsSet[this.currentQuestion].correctAnswer) {
       console.log("yes")
       this.handlerightAnswer();
@@ -136,11 +136,11 @@ var quizObject = {
   },
   handlewrongAnswer: function () {
     this.choicesWrong++
-    panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer+ ".<br><br>");
+    panel.html("<h2 class='current-message'>Close But No Cigar. It was " + questionsSet[this.currentQuestion].correctAnswer + ".<br><br>");
     $(".current-message").append("<img class='planets' src='" + questionsSet[this.currentQuestion].image + "' />")
     setTimeout(quizObject.nextQuestion, 3 * 1000);
   },
-  reset: function (){
+  reset: function () {
     $(".countdown-div").show();
     this.currentQuestion = 0;
     this.counter = counterNumber;
@@ -168,7 +168,7 @@ $(document).on("click", ".start-button", function () {
 // === on click for getting which button was clicked
 
 $(document).on('click touchstart', '.answer', function (event) {
-  
+
   userAnswer = $(event.target).text();
   quizObject.clicked(userAnswer);
 
@@ -182,52 +182,52 @@ $(document).on('click', '.reset-button', function () {
 //javascript library for the stars: IFFE
 // // Just For Fun. Enjoy finding new constellations ;-)
 
-(function($){
+(function ($) {
 
-  function generateStar(canvas, ctx, starRadius){
-      ctx.beginPath();
-      ctx.arc(starRadius + (Math.random() * canvas.width), starRadius + (Math.random() * canvas.height), starRadius*Math.random(), 0, Math.PI*2, false);
-      //ctx.arc(100, 30, starRadius, 0, Math.PI*2, false);
+  function generateStar(canvas, ctx, starRadius) {
+    ctx.beginPath();
+    ctx.arc(starRadius + (Math.random() * canvas.width), starRadius + (Math.random() * canvas.height), starRadius * Math.random(), 0, Math.PI * 2, false);
+    //ctx.arc(100, 30, starRadius, 0, Math.PI*2, false);
 
-      var rand = Math.random();
-      if(rand <= 0.5){
-          ctx.fillStyle = "rgba(255, 255, 255, 1)";
-          ctx.shadowColor = "rgba(255, 255, 255, 0.5)";
-          ctx.shadowBlur = 3;
-      }
-      else if(rand > 0.75){
-          ctx.fillStyle = "rgba(255, 254, 196, 1)";
-          ctx.shadowColor = "rgba(255, 254, 196, 0.5)";
-          ctx.shadowBlur = 4;
-      }
-      else{
-          ctx.fillStyle = "rgba(192, 247, 255, 1)";
-          ctx.shadowColor = "rgba(192, 247, 255, 0.5)";
-          ctx.shadowBlur = 7;
-      }
-      ctx.fill();
+    var rand = Math.random();
+    if (rand <= 0.5) {
+      ctx.fillStyle = "rgba(255, 255, 255, 1)";
+      ctx.shadowColor = "rgba(255, 255, 255, 0.5)";
+      ctx.shadowBlur = 3;
+    }
+    else if (rand > 0.75) {
+      ctx.fillStyle = "rgba(255, 254, 196, 1)";
+      ctx.shadowColor = "rgba(255, 254, 196, 0.5)";
+      ctx.shadowBlur = 4;
+    }
+    else {
+      ctx.fillStyle = "rgba(192, 247, 255, 1)";
+      ctx.shadowColor = "rgba(192, 247, 255, 0.5)";
+      ctx.shadowBlur = 7;
+    }
+    ctx.fill();
   }
 
-  $(function(){
+  $(function () {
 
     var canvas = document.getElementById("space");
     var context = canvas.getContext("2d");
 
-    onresize = function(){
+    onresize = function () {
       canvas.width = canvas.clientWidth;
       canvas.height = canvas.clientHeight;
     }
     onresize();
 
     interval = setInterval(
-      function(interval){
+      function (interval) {
         generateStar(canvas, context, 3);
       }
-      , 54);
+      , 24);
 
     setTimeout( // Stop creating stars after 100s
-      function(){ clearInterval(interval); }
-      ,200000
+      function () { clearInterval(interval); }
+      , 200000
     );
 
   });
@@ -267,8 +267,8 @@ $(document).on('click', '.reset-button', function () {
     // update the DOM to reflect a times up && display the correct answer
     // wait a few seconds
     // then move on to the next question
-  
-  
+
+
 //   askQuestions: function (){
 //     // add questions and answersto the DOM
 //     // capture user answer from the DOM
@@ -329,21 +329,6 @@ $(document).on('click', '.reset-button', function () {
 //       });
 //   }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
